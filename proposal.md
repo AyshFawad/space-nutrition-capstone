@@ -58,19 +58,27 @@ Astronauts face unique challenges in maintaining a balanced and healthy diet whi
     A tracker for daily caloric intake and suggestions to ensure astronauts meet nutritional goals.
 
 ### Mockups
-
-Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
--to do excalidraw/wireframes
+refer mockups.png
 ### Data
 
-Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out. 
--to do drawSQL plan
-
+refer data.png
 ### Endpoints
 
 List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 get /plants
+post /plants
+put /plants/:id
+delete /plant/:id
+
 get /calories
+get /calories/id
+post /calories
+put /calories/:id
+delete /calories/:id
+
+get/recipe
+
+
 
 ## Roadmap
 
@@ -86,7 +94,7 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 ## Future Implementations
 Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date.
--Mood and health monitoring:To cater to astronauts from different countries, offer multilingual support to ensure that all astronauts can use the app effectively.
+-Mood and health monitoring: Integrate a system to track astronauts’ health and mood based on nutrition, ensuring that diet intake impacts overall well-being.
 
 -Multilingual support:To cater to astronauts from different countries, offer multilingual support to ensure that all astronauts can use the app effectively.
 
