@@ -1,8 +1,11 @@
-import CalorieCounter from "../../components/CalorieCounter/CalorieCounter";
+import CalorieCounterForm from "../../components/CalorieCounterForm/CalorieCounterForm";
 
 function CalorieCounterPage (){
     return (
-        <CalorieCounter />
+        <>
+        <CalorieCounterForm />
+        </>
+
     )
 }
 
