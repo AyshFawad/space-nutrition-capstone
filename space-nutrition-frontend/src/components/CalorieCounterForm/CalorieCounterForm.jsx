@@ -6,22 +6,8 @@ function CalorieCounterForm(){
     const [quantity, setQuantity] = useState("");
     const [foodItem, setFoodItem] = useState("");
     const [food, setFood] = useState("");
-    let foodList;
-    const [nutritionValue, setNutritionValue] = useState([{
-        calories:"",
-        carbohydrates_total_g:"",
-        cholesterol_mg:"",
-        fat_saturated_g:"",
-        fat_total_g:"",
-        fiber_g:"",
-        name:"",
-        potassium_mg:"",
-        protein_g:"",
-        serving_size_g:"",
-        sodium_mg:"",
-        sugar_g:"",
-        }]);
-        
+    let newFood;
+    const [nutritionValue, setNutritionValue] = useState([]);
 
     function handleChangeQuantity(event){
         setQuantity(event.target.value); 
@@ -37,29 +23,43 @@ function CalorieCounterForm(){
                 headers: {
                   'X-Api-Key': apiKey,  
                 }        
-              })
+            })
            
-            foodList = response.data.items[0];
-            console.log(foodList);
-           setNutritionValue([foodList])
+        newFood=response.data.items[0];
+        setNutritionValue([...nutritionValue, newFood]);
+           console.log([newFood, ...nutritionValue]);
+           
         } catch (error) {
             console.error(error);
+            
         }
-      }
-  
+    }
+    const deleteFoodItem = (index) => {
+        const updatedNutritionValue = [...nutritionValue];
+        updatedNutritionValue.splice(index, 1);
+        setNutritionValue(updatedNutritionValue);
+      };
+    
 
     function handleSubmit(event) {
         event.preventDefault();
         setFood(quantity+ ' ' + foodItem);
-        // setNutritionValue(prevNutritionValue => {
-        //     const updatedList = [...prevNutritionValue, foodList];
-        //     return updatedList; 
-        //   })  /
-        //setNutritionValue(prevNutritionValue => [...prevNutritionValue, foodList])
-        //setNutritionValue([foodList, ...nutritionValue])
+
+        if(food === (quantity+ ' ' + foodItem)){
+            setFood(quantity+ ' ' + foodItem);
+        }
+        //fetchCalories();
+       // setNutritionValue([newFood, ...foodList])
+           
+        //setNutritionValue([newFood, ...foodList])
     }
-    
-    
+    function handleCancel(event) {
+        event.preventDefault();
+        setFoodItem("");
+        setQuantity("")
+        setFood("")
+    }
+        
     return(
         <>
         <form onSubmit = {handleSubmit}>
@@ -84,9 +84,11 @@ function CalorieCounterForm(){
                 />
             </label>
             <button type="submit">Add</button>
+            <button onClick = {handleCancel}>Cancel</button>
+
 
         </form>
-        <CalorieCounter food={food} nutritionValue={nutritionValue} fetchCalories={fetchCalories}  />
+        <CalorieCounter food={food} nutritionValue={nutritionValue} fetchCalories={fetchCalories} deleteFoodItem= {deleteFoodItem}  />
         </>
     )
 
