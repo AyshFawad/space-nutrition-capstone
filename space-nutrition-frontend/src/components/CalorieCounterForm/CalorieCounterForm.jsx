@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import CalorieCounter from "../CalorieCounter/CalorieCounter"
 import axios from 'axios';
 

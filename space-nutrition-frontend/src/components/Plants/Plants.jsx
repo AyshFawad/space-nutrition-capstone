@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import { baseURL } from "../../utilities/utilities.js";
 
-function PlantDetails() {
-    const [plant, setPlant] = useState([]);
+function Plants() {
+    const [plants, setPlants] = useState([]);
     const [error, setError] = useState();
-    const { id } = useParams();
+   
     useEffect(() => {
-          const fetchPlantsDetails = async () => {
+          const fetchPlants = async () => {
           try {
             const response = await axios.get(
-              `${baseURL}/api/plants/${id}`
+              `${baseURL}/api/plants/`
             );
-            setPlant(response.data);
+            setPlants(response.data);
             setError(null);
           } catch (error) {
             if (error.response && error.response.status === 404) {
@@ -24,11 +24,11 @@ function PlantDetails() {
           }
         };
     
-        fetchPlantsDetails();
+        fetchPlants();
         
-      }, [id]);
+      }, []);
     
-      if (plant === null) {
+      if (plants === null) {
         if (error) {
           return <>{error}</>;
         }
@@ -36,12 +36,21 @@ function PlantDetails() {
       }
     
     return (
-        <>
-        <p>{plant.name}</p>
-        <p>{plant.watering_frequency}</p>
-        </>
+        <section>
+          {plants.map((plant)=>{
+            return (
+                <section key={plant.id}>
+                <Link to= {`/plant/${plant.id}`}  >           
+                
+                <p>{plant.name}</p>
+                </Link>   
+                
+                </section>
+            );
+          })}
+        </section>
 
     )
 }
 
-export default PlantDetails
+export default Plants

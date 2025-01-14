@@ -5,7 +5,7 @@ function NavComponent(){
         <nav>
             <Link to="/">HomePage</Link>
             <Link to="calories">Calorie Counter</Link>
-            <Link to="plants">Plants</Link>
+            <Link to="/plants">Plants</Link>
         </nav>
     )
 }
