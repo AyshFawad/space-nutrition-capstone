@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { baseURL } from "../../utilities/utilities.js";
+import "./Plants.scss"
 
 function Plants() {
     const [plants, setPlants] = useState([]);
@@ -37,11 +38,14 @@ function Plants() {
     
     return (
         <section>
+            
           {plants.map((plant)=>{
+           { console.log(`${baseURL}${plant.photo}`)}
             return (
                 <section key={plant.id}>
                 <Link to= {`/plant/${plant.id}`}  >           
                 
+                <img src={baseURL+plant.photo}/>
                 <p>{plant.name}</p>
                 </Link>   
                 

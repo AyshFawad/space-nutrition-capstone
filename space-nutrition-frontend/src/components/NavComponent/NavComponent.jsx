@@ -6,6 +6,7 @@ function NavComponent(){
             <Link to="/">HomePage</Link>
             <Link to="calories">Calorie Counter</Link>
             <Link to="/plants">Plants</Link>
+            <Link to="/recipes">Recipes</Link>
         </nav>
     )
 }
