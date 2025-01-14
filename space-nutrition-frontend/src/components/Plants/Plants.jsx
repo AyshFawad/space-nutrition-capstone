@@ -40,7 +40,7 @@ function Plants() {
         <section>
             
           {plants.map((plant)=>{
-           { console.log(`${baseURL}${plant.photo}`)}
+           
             return (
                 <section key={plant.id}>
                 <Link to= {`/plant/${plant.id}`}  >           

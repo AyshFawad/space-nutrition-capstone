@@ -6,7 +6,7 @@ function PlantsPage(){
     return (
         <>
         <nav>
-        <Link to="/plants/new">Add a Crop</Link>
+        <Link to="/plants/addcrop">Add a Crop</Link>
         <Link to="/plants/myplants">My Plants</Link>
         </nav>
 
