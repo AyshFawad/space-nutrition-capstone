@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { baseURL } from "../../utilities/utilities.js"
+import { useNavigate } from 'react-router-dom';
 
 function AddCrop() {
   const [crop, setCrop] = useState(""); // The selected crop name
@@ -8,7 +9,7 @@ function AddCrop() {
   const [isFormValid, setIsFormValid] = useState(true);
   const [crops, setCrops] = useState([]); // To store all fetched crops
   const [loading, setLoading] = useState(false); // To track loading state
-
+  const navigate = useNavigate();
   
 
   // Fetch all crops when the component is mounted
@@ -49,34 +50,30 @@ function AddCrop() {
       return;
     }
     setIsFormValid(true);
-    setLoading(true); // Start loading
+    setLoading(true);
 
     try {
-      // Filter the crop details based on the selected crop name
+      
       const selectedCrop = crops.find((item) => item.name === crop);
       if (!selectedCrop) {
         throw new Error("Crop not found");
       }
 
-      // Prepare the full crop data, including growth stage and crop details
+      
       const fullCropData = {
-        name: selectedCrop.name, // The crop name
+        name: selectedCrop.name,
         watering_frequency: selectedCrop.watering_frequency,
         temperature_range: selectedCrop.temperature_range,
         humidity_level: selectedCrop.humidity_level,
         photo: selectedCrop.photo,
-        growth_stage: growthStage, // Add the selected growth stage
+        growth_stage: growthStage, 
       };
 
-      // Send the complete crop data to the backend for processing
+      
       const result = await axios.post(`${baseURL}/api/myPlants`, fullCropData);
 
-      // On success, log the result and reset the form
-      console.log("Crop data updated successfully:", result.data);
+      alert("Crop added successfully!");
 
-      alert("Crop data updated successfully!");
-
-      // Reset the form fields
       setCrop("");
       setGrowthStage("");
     } catch (error) {
@@ -85,6 +82,7 @@ function AddCrop() {
     } finally {
       setLoading(false); // Stop loading
     }
+      navigate('/plants/myplants');
   }
 
   // Get available growth stages for each crop
@@ -133,7 +131,7 @@ function AddCrop() {
             value={growthStage}
             onChange={handleChangeGrowthStage}
             required
-            disabled={!crop} // Disable growth stage until a crop is selected
+            disabled={!crop} 
           >
             <option value="">Select a growth stage</option>
             {getGrowthStages(crop).map((stage) => (
