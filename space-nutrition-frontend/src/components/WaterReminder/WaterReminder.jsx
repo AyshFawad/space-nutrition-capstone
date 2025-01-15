@@ -31,7 +31,6 @@ function WaterReminder() {
 
     return () => clearInterval(intervalId); // Clean up interval on component unmount
   }, [isReminderDismissed]);
-
   return (
     <div className="water-reminder">
       {isReminderSet && !isReminderDismissed && (
