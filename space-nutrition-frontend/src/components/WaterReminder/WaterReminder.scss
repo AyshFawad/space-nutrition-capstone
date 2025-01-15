@@ -1,0 +1,56 @@
+.water-reminder {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto; // Center the content
+    
+    .reminder-box {
+      background-color: #e1f7d5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: #4b8f29;
+        margin: 0;
+  
+        strong {
+          font-weight: bold;
+          color: #3c763d;
+        }
+      }
+  
+      button {
+        background-color: #3c763d;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+  
+        &.dismiss {
+          background-color: #2b5c2b;
+          color: white;
+        }
+  
+        &:hover {
+          background-color: #2b5c2b;
+        }
+  
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(60, 118, 61, 0.6);
+        }
+      }
+    }
+  }
