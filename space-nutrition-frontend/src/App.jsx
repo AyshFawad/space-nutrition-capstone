@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css'
+import './App.scss'
 import Header from './components/Header/Header'
 import HomePage from './pages/HomePage/HomePage'
 import CalorieCounterPage from "./pages/CalorieCounterPage/CalorieCounterPage";
@@ -14,11 +14,13 @@ function App() {
   
   return (
 
-    <>
+    <div className="app">
      
     <BrowserRouter>
+      <div className="header-nav">
       <Header />
       <NavComponent />
+      </div>
     
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -33,7 +35,7 @@ function App() {
     
     </BrowserRouter>
     
-  </>
+  </div>
    
   )
 }
