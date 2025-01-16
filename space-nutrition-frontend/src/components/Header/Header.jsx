@@ -7,8 +7,9 @@ function Header() {
     <header className="header">
       <Link to="/" className="header__logo-link">
         <img src={logo} alt="astronaut" className="header__logo" />
+        <p className="header__title">AstroBites</p>
       </Link>
-      <p className="header__title">AstroBites</p>
+      
     </header>
   );
 }

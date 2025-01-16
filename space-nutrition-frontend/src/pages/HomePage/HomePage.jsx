@@ -1,6 +1,9 @@
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
 import Astronaut from "../../assets/images/astronaut.png";
+import Fruits from "../../assets/images/fruit.png"
+import Greehouse from "../../assets/images/greenhouse.png"
+import Scale from "../../assets/images/weighing-scale.png"
 function HomePage() {
            
     const navigate = useNavigate();
@@ -8,6 +11,15 @@ function HomePage() {
        const section = document.getElementById("explore-section");
        section?.scrollIntoView({ behavior: "smooth" });
     }
+    const handleCaloriesClick = () => {
+        navigate("/calories"); // Navigate to the /plants page
+      };
+    const handlePlantsClick = () => {
+        navigate("/plants"); // Navigate to the /plants page
+      };
+    const handleRecipesClick = () => {
+        navigate("/recipes"); // Navigate to the /plants page
+      };
     
   return (
     <>
@@ -24,45 +36,49 @@ function HomePage() {
         </main>
 
         <section className="features" id="explore-section">
-          <div className="feature-card">
+         
+          <div className="card">
             <img
-              src="https://example.com/space-recipes.jpg" // Replace with your image for space recipes
-              alt="Space Recipes"
-              className="feature-image"
+              src={Scale}
+              alt="Calorie Counter"
+              className="card__image"
             />
-            <h2>Space Recipes</h2>
-            <p>
-              Discover innovative and nutritious recipes tailored for
-              astronauts!
+            <div className="card__container">
+            <h2 className="card__title">Calorie Counter</h2>
+            <p className="card__details">
+              Track your nutrition and ensure you're getting the right intake.
             </p>
-            <button className="cta-button">Explore Recipes</button>
+            <button onClick = {handleCaloriesClick} className="cta-button">Track Calories</button>
+            </div>
           </div>
-
-          <div className="feature-card">
+          <div className="card">
             <img
-              src="https://example.com/space-farming.jpg" // Replace with your image for space farming
+              src={Greehouse}
               alt="Space Farming"
-              className="feature-image"
+              className="card__image"
             />
-            <h2>Space Farming</h2>
-            <p>
+            <div className="card__container">
+            <h2 className="card__title">Space Farming</h2>
+            <p className="card__details">
               Learn how to cultivate food in the harshest environments of space.
             </p>
-            <button className="cta-button">Start Farming</button>
+            <button onClick = {handlePlantsClick} className="cta-button">Start Farming</button>
+            </div>
           </div>
-
-          <div className="feature-card">
+          <div className="card">
             <img
-              src="https://example.com/calorie-counter.jpg" // Replace with your image for calorie counter
-              alt="Calorie Counter"
-              className="feature-image"
+              src={Fruits}
+              alt="Space Recipes"
+              className="card__image"
             />
-            <h2>Calorie Counter</h2>
-            <p>
-              Track your nutrition and ensure you're getting the right intake on
-              your space journey.
+            <div className="card__container">
+            <h2 className="card__title">Space Recipes</h2>
+            <p className="card__details">
+              Discover innovative recipes tailored for
+              astronauts!
             </p>
-            <button className="cta-button">Track Calories</button>
+            <button onClick = {handleRecipesClick} className="cta-button">Explore Recipes</button>
+            </div>
           </div>
         </section>
 

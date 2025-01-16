@@ -98,12 +98,59 @@ function CalorieCounter({food , nutritionValue, fetchCalories, deleteFoodItem })
       };
     
     if(calories === 0){
-        return <p>Enter your food intake</p>
+        return <p></p>
     }
     return (
+        // <>
+        // <h2>Dietary Intake</h2>
+        // <div className="calorie-table" >
+        // <p className="calorie-table__column">Food</p>
+        // <p className="calorie-table__column">Calories</p>
+        // <p className="calorie-table__column">Carbohydrates</p>
+        // <p className="calorie-table__column">Cholesterol</p>
+        // <p className="calorie-table__column">Fat</p>
+        // <p className="calorie-table__column">Fiber</p>
+        // <p className="calorie-table__column">Potassium</p>
+        // <p className="calorie-table__column">protein</p>
+        // <p className="calorie-table__column">Sodium</p>
+        // <p className="calorie-table__column">Sugar</p>
+        
+        // </div>
+
+        // {nutritionValue.map((item , index) => {
+        // return (
+        // <div className="calorie-table" key={index}>
+        // <p className="calorie-table__column">{item.name}</p>
+        // <p className="calorie-table__column">{item.calories}</p>
+        // <p className="calorie-table__column">{item.carbohydrates_total_g}</p>
+        // <p className="calorie-table__column">{item.cholesterol_mg}</p>
+        // <p className="calorie-table__column">{item.fat_total_g}</p>
+        // <p className="calorie-table__column">{item.fiber_g}</p>
+        // <p className="calorie-table__column">{item.potassium_mg}</p>
+        // <p className="calorie-table__column">{item.protein_g}</p>
+        // <p className="calorie-table__column">{item.sodium_mg}</p>
+        // <p className="calorie-table__column">{item.sugar_g}</p>
+        // <button onClick={() => handleDelete(index)}>Delete</button>
+        // </div>
+        // )
+        // })
+        // }
+        // <div className="calorie-table">
+        // <p className="calorie-table__column">Total</p>
+        // <p className="calorie-table__column">{calories}</p>
+        // <p className="calorie-table__column">{carbohydrates}</p>
+        // <p className="calorie-table__column">{cholesterol}</p>
+        // <p className="calorie-table__column">{fat}</p>
+        // <p className="calorie-table__column">{fiber}</p>
+        // <p className="calorie-table__column">{potassium}</p>
+        // <p className="calorie-table__column">{protein}</p>
+        // <p className="calorie-table__column">{sodium}</p>
+        // <p className="calorie-table__column">{sugar}</p>
+        // </div>
+        // </>
         <>
-        <h2>Dietary Intake</h2>
-        <div className="calorie-table" >
+      <h2 className="dietary-intake-heading">Dietary Intake</h2>
+      <div className="calorie-table-header">
         <p className="calorie-table__column">Food</p>
         <p className="calorie-table__column">Calories</p>
         <p className="calorie-table__column">Carbohydrates</p>
@@ -111,43 +158,40 @@ function CalorieCounter({food , nutritionValue, fetchCalories, deleteFoodItem })
         <p className="calorie-table__column">Fat</p>
         <p className="calorie-table__column">Fiber</p>
         <p className="calorie-table__column">Potassium</p>
-        <p className="calorie-table__column">protein</p>
+        <p className="calorie-table__column">Protein</p>
         <p className="calorie-table__column">Sodium</p>
         <p className="calorie-table__column">Sugar</p>
-        
-        </div>
+      </div>
 
-        {nutritionValue.map((item , index) => {
-        return (
-        <div className="calorie-table" key={index}>
-        <p className="calorie-table__column">{item.name}</p>
-        <p className="calorie-table__column">{item.calories}</p>
-        <p className="calorie-table__column">{item.carbohydrates_total_g}</p>
-        <p className="calorie-table__column">{item.cholesterol_mg}</p>
-        <p className="calorie-table__column">{item.fat_total_g}</p>
-        <p className="calorie-table__column">{item.fiber_g}</p>
-        <p className="calorie-table__column">{item.potassium_mg}</p>
-        <p className="calorie-table__column">{item.protein_g}</p>
-        <p className="calorie-table__column">{item.sodium_mg}</p>
-        <p className="calorie-table__column">{item.sugar_g}</p>
-        <button onClick={() => handleDelete(index)}>Delete</button>
+      {nutritionValue.map((item, index) => (
+        <div className="calorie-table-row" key={index}>
+          <p className="calorie-table__column">{item.name}</p>
+          <p className="calorie-table__column">{item.calories}</p>
+          <p className="calorie-table__column">{item.carbohydrates_total_g}</p>
+          <p className="calorie-table__column">{item.cholesterol_mg}</p>
+          <p className="calorie-table__column">{item.fat_total_g}</p>
+          <p className="calorie-table__column">{item.fiber_g}</p>
+          <p className="calorie-table__column">{item.potassium_mg}</p>
+          <p className="calorie-table__column">{item.protein_g}</p>
+          <p className="calorie-table__column">{item.sodium_mg}</p>
+          <p className="calorie-table__column">{item.sugar_g}</p>
+          <button className="delete-btn" onClick={() => handleDelete(index)}>Delete</button>
         </div>
-        )
-        })
-        }
-        <div className="calorie-table">
+      ))}
+
+      <div className="calorie-table-row total">
         <p className="calorie-table__column">Total</p>
-        <p className="calorie-table__column">{calories}</p>
-        <p className="calorie-table__column">{carbohydrates}</p>
-        <p className="calorie-table__column">{cholesterol}</p>
-        <p className="calorie-table__column">{fat}</p>
-        <p className="calorie-table__column">{fiber}</p>
-        <p className="calorie-table__column">{potassium}</p>
-        <p className="calorie-table__column">{protein}</p>
-        <p className="calorie-table__column">{sodium}</p>
-        <p className="calorie-table__column">{sugar}</p>
-        </div>
-        </>
+        <p className="calorie-table__column">{calories.toFixed(2)}</p>
+        <p className="calorie-table__column">{carbohydrates.toFixed(2)}</p>
+        <p className="calorie-table__column">{cholesterol.toFixed(2)}</p>
+        <p className="calorie-table__column">{fat.toFixed(2)}</p>
+        <p className="calorie-table__column">{fiber.toFixed(2)}</p>
+        <p className="calorie-table__column">{potassium.toFixed(2)}</p>
+        <p className="calorie-table__column">{protein.toFixed(2)}</p>
+        <p className="calorie-table__column">{sodium.toFixed(2)}</p>
+        <p className="calorie-table__column">{sugar.toFixed(2)}</p>
+      </div>
+    </>
     )
 
 }

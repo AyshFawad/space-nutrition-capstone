@@ -82,7 +82,7 @@ function AddCrop() {
     } finally {
       setLoading(false); // Stop loading
     }
-      navigate('/plants/myplants');
+    navigate('/plants/myplants');
   }
 
   // Get available growth stages for each crop

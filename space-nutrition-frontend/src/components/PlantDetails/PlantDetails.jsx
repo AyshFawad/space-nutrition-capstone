@@ -40,7 +40,7 @@ function PlantDetails() {
         <img src = {baseURL + plant.photo}  alt = "tomato plant"/>
         <p>Plant Name : {plant.name}</p>
         <p>Watering Frequency : {plant.watering_frequency}</p>
-        <p>Temperatur range : {plant.temperature_range}</p>
+        <p>Temperature range : {plant.temperature_range}</p>
         <p>Humidity Level : {plant.humidity_level}</p>
         </>
 
