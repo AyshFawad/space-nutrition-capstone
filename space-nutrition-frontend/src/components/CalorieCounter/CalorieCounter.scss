@@ -1,31 +1,47 @@
-.calorie-table {
-    display: flex;
-    // flex-direction: column;
-    &__column {
-        width: 15%;
-    }
-}
-.calorie-table-header, .calorie-table-row {
+// 
+.calorie-table{
+  &__header{
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: transparent;  // No solid background
-  color: white;  // Dark text for contrast
+    background-color: transparent;  
+    color: white;  
     margin: 5px 0;
     border-radius: 5px;
-  }
-  
-  .calorie-table-header {
     font-weight: bold;
     background: linear-gradient(135deg, #00bcd4, #00796b);
+    
   }
+  &__row{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: transparent;  
+  color: white;  
+    margin: 5px 0;
+    border-radius: 5px;
+    border-bottom: 1px solid #555;
+
+    &--total{
+      background-color: #333;
+      font-weight: bold;
+  }
+    }
   
-  .calorie-table__column {
+
+  &__column{
+
     flex: 1;
     text-align: center;
     padding: 5px;
     width:20%;
   }
+
+}
+
+ 
+  
+
   
   .delete-btn {
     background-color: #ff4747;
@@ -42,24 +58,11 @@
     background-color: #e63946;
   }
   
-  .total {
-    background-color: #333;
-    font-weight: bold;
-  }
-  
-  .calorie-table-row {
-    border-bottom: 1px solid #555;
-  }
-  
-  .calorie-table-row.total {
-    background-color: #333;
-  }
-  
   .dietary-intake-heading{
     //text-align: center;
     padding-left: 2rem;
   }
 
-  .t {
+  .end {
     text-align: end;
   }

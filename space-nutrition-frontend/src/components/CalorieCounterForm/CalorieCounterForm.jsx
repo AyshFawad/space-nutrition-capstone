@@ -62,13 +62,14 @@ function CalorieCounterForm() {
 
     return (
         <>
-        <div className="calorie-counter-form">
-            <h2 className="form__header" >Nutrition Dashboard</h2>
-            <p className="form__subtitle" >Record Your Meals and Achieve Your Daily Nutrition Targets </p>
+        <div className="calorie-form">
+            <h2 className="calorie-form__header" >Nutrition Dashboard</h2>
+            <p className="calorie-form__subtitle" >Record Your Meals and Achieve Your Daily Nutrition Targets </p>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className="calorie-form__label">
                     Quantity
                     <input
+                        className="calorie-form__input"
                         name="quantity"
                         type="text"
                         placeholder="Quantity"
@@ -76,9 +77,10 @@ function CalorieCounterForm() {
                         value={quantity}
                     />
                 </label>
-                <label>
+                <label className="calorie-form__label">
                     Food item
                     <input
+                        className="calorie-form__input"
                         name="food-item"
                         type="text"
                         placeholder="Food item"
@@ -86,8 +88,8 @@ function CalorieCounterForm() {
                         value={foodItem}
                     />
                 </label>
-                <button type="submit">Add</button>
-                <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
+                <button className = "calorie-form__button"type="submit">Add</button>
+                <button className="calorie-form__button" onClick={handleCancel}>Cancel</button>
             </form>
             </div>
             <CalorieCounter 

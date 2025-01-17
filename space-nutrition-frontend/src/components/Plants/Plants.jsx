@@ -39,14 +39,14 @@ function Plants() {
     return (
       <section className="plants-container">
       {plants.map((plant) => (
-        <section key={plant.id} className="plant-item">
+        <section key={plant.id} className="plants-container__item">
           <Link to={`/plant/${plant.id}`} >
             <img 
               src={baseURL + plant.photo} 
-              alt={plant.name}  // Added alt text for accessibility
-              className="plant-image"  // Added class for styling
+              alt={plant.name}  
+              className="plants-container__image" 
             />
-            <p>{plant.name}</p>
+            <p className ="plants-container__name">{plant.name}</p>
           </Link>   
         </section>
       ))}
