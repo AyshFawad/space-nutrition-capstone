@@ -9,15 +9,15 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #282828;
-    color: white;
+    background-color: transparent;  // No solid background
+  color: white;  // Dark text for contrast
     margin: 5px 0;
     border-radius: 5px;
   }
   
   .calorie-table-header {
     font-weight: bold;
-    background-color: #444;
+    background: linear-gradient(135deg, #00bcd4, #00796b);
   }
   
   .calorie-table__column {
@@ -54,3 +54,7 @@
     background-color: #333;
   }
   
+  .dietary-intake-heading{
+    //text-align: center;
+    padding-left: 2rem;
+  }

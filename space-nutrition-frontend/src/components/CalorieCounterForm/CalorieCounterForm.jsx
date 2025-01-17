@@ -27,7 +27,8 @@ function CalorieCounterForm() {
                 headers: {
                   'X-Api-Key': apiKey,  
                 }        
-            });
+            }
+        ); console.log(response.data)
             newFood = response.data.items[0];
             setNutritionValue([...nutritionValue, newFood]);
             console.log([newFood, ...nutritionValue]);
@@ -62,8 +63,8 @@ function CalorieCounterForm() {
     return (
         <>
         <div className="calorie-counter-form">
-            <h2>Calorie Counter</h2>
-            <p>Enter your food intake </p>
+            <h2 className="form__header" >Nutrition Dashboard</h2>
+            <p className="form__subtitle" >Record Your Meals and Achieve Your Daily Nutrition Targets </p>
             <form onSubmit={handleSubmit}>
                 <label>
                     Quantity
