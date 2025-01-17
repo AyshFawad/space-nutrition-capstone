@@ -1,0 +1,20 @@
+.plants{
+    &__img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    }
+    &__title {
+        text-align: center;
+    }
+
+    &__details{
+        font-size: 18px;
+    font-weight: 600;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    }
+
+}

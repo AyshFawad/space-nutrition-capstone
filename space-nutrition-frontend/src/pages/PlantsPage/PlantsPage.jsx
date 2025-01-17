@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom"
 import Plants from "../../components/Plants/Plants"
+import "./PlantsPage.scss"
 
 function PlantsPage(){
     
     return (
         <>
-        <nav>
+       <nav className="plant-page">
         <Link to="/plants/addcrop">Add a Crop</Link>
         <Link to="/plants/myplants">My Plants</Link>
-        </nav>
+      </nav>
 
         <Plants />
         </>

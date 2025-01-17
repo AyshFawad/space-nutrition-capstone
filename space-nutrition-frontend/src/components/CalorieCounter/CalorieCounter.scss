@@ -24,6 +24,7 @@
     flex: 1;
     text-align: center;
     padding: 5px;
+    width:20%;
   }
   
   .delete-btn {
@@ -57,4 +58,8 @@
   .dietary-intake-heading{
     //text-align: center;
     padding-left: 2rem;
+  }
+
+  .t {
+    text-align: end;
   }

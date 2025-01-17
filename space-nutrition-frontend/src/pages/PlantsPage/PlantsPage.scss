@@ -1,0 +1,14 @@
+.plant-page {
+    display:flex;
+    justify-content:space-evenly; 
+    margin-top: 3rem;
+    
+}
+
+a{
+    font-size: 1.5rem;
+    &:hover{
+        color: #d500f9;
+    }
+    
+}

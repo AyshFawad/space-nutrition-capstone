@@ -3,6 +3,7 @@ import axios from 'axios';
 import { baseURL } from "../../utilities/utilities.js";
 import dateFormat from "../../components/DateFormat/DateFormat.jsx"
 import WaterReminder from "../../components/WaterReminder/WaterReminder.jsx";
+import "./MyPlantsPage.scss";
 
 function MyPlantsPage() {
     const [myPlants, setMyPlants] = useState([]);
@@ -53,22 +54,20 @@ function MyPlantsPage() {
         <section>
         <WaterReminder />
              
-             <h1>My Plants</h1>
-          {myPlants.map((plant)=>{
-           
-            return (
-                              
-                <section key={plant.id}>
-                <img src={baseURL+plant.photo}/>
-                <p>{plant.name}</p>
-                <p>{plant.growth_stage}</p>
-                <p>Planting date: {dateFormat(plant.created_at)}</p>
+          <div className="my-plants-container">
+            <h2 className="plants__title">My Plants</h2>
+            {myPlants.map((plant) => (
+              <section key={plant.id} className="plant-item">
+                <img src={baseURL + plant.photo} alt={plant.name} className="plants__img" />
+                <div>
+                  <p className="plants__details"><strong>{plant.name}</strong></p>
+                  <p className="plants__details">Growth Stage: {plant.growth_stage}</p>
+                  <p className="plants__details">Planting Date: {dateFormat(plant.created_at)}</p>
+                </div>
                 <button onClick={() => handleDelete(plant.id)}>Delete</button>
-                         
-                </section>
-                
-            );
-          })}
+              </section>
+            ))}
+          </div>
         </section>
 
     )

@@ -1,0 +1,81 @@
+/* Form Styling */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white; /* Green color */
+    margin-bottom: 3.125rem;
+    margin-top:1.875rem;
+  }
+  
+  /* Main Form Container */
+  .form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid white ;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Labels */
+  label {
+    font-size: 20px;
+    font-weight: 600;
+   
+  }
+  
+  /* Select Input */
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Light border */
+    //border-radius: 6px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Hover effect on select inputs */
+  select:hover {
+    border-color: #4CAF50; /* Highlighted green border on hover */
+  }
+  
+  /* Button */
+  .form__button {
+    padding: 12px 20px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(135deg, #9c27b0, #6200ea);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    //transition: background-color 0.3s ease;
+    margin-top: 20px;
+
+    
+  }
+  
+  
+  
+  /* Mobile-friendly adjustments */
+  @media (max-width: 768px) {
+    .form {
+      padding: 15px;
+      gap: 12px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  
+    select {
+      font-size: 14px;
+    }
+  
+    .form__button {
+      font-size: 16px;
+    }
+  }
+  

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { baseURL } from "../../utilities/utilities.js";
+import "./PlantDetails.scss"
 
 function PlantDetails() {
     const [plant, setPlant] = useState([]);
@@ -36,13 +37,13 @@ function PlantDetails() {
       }
     
     return (
-        <>
-        <img src = {baseURL + plant.photo}  alt = "tomato plant"/>
-        <p>Plant Name : {plant.name}</p>
-        <p>Watering Frequency : {plant.watering_frequency}</p>
-        <p>Temperature range : {plant.temperature_range}</p>
-        <p>Humidity Level : {plant.humidity_level}</p>
-        </>
+      <section className="plant-details-container">
+      <img src={baseURL + plant.photo} alt={plant.name} />
+      <p>{plant.name}</p>
+      <p><span>Watering Frequency:</span> {plant.watering_frequency}</p>
+      <p><span>Temperature Range:</span> {plant.temperature_range}</p>
+      <p><span>Humidity Level:</span> {plant.humidity_level}</p>
+    </section>
 
     )
 }

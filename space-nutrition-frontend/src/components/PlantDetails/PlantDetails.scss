@@ -1,0 +1,83 @@
+/* General container for plant details */
+.plant-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   // background-color: #fafafa;
+    //border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 50px auto;
+    color: #333;
+    border:2px solid white;
+  }
+  
+  /* Styling for the plant image */
+  .plant-details-container img {
+    width: 100%;
+    max-width: 450px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Plant name style */
+  .plant-details-container h2 {
+    font-size: 3.125rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 12px;
+  }
+  
+  /* Styling for each plant detail text */
+  .plant-details-container p {
+    //font-size: 16px;
+    color: white;
+    line-height: 1.5;
+    margin: 8px 0;
+    padding-left: 10px;
+  }
+  
+  /* Label text for each plant detail (Watering, Temperature, etc.) */
+  .plant-details-container p span {
+    font-weight: 600;
+    color: white;
+    margin-right: 5px;
+  }
+  
+  /* Add a "Back" button style (if you need a back button for navigation) */
+  .plant-details-container .back-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .plant-details-container .back-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 600px) {
+    .plant-details-container {
+      padding: 15px;
+    }
+  
+    .plant-details-container h2 {
+      font-size: 20px;
+    }
+  
+    .plant-details-container p {
+      font-size: 14px;
+    }
+  }
+  

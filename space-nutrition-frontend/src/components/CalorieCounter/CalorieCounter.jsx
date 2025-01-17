@@ -844,6 +844,7 @@ function CalorieCounter({ food, nutritionValue, fetchCalories, deleteFoodItem })
         <p className="calorie-table__column">Protein</p>
         <p className="calorie-table__column">Sodium</p>
         <p className="calorie-table__column">Sugar</p>
+        <p className="calorie-table__column"></p>
       </div>
 
       {nutritionData.map((item, index) => (
@@ -868,16 +869,17 @@ function CalorieCounter({ food, nutritionValue, fetchCalories, deleteFoodItem })
       ))}
 
       <div className="calorie-table-row total">
-        <p className="calorie-table__column">Total</p>
-        <p className="calorie-table__column">{calories.toFixed(2)}</p>
-        <p className="calorie-table__column">{carbohydrates.toFixed(2)}</p>
-        <p className="calorie-table__column">{cholesterol.toFixed(2)}</p>
-        <p className="calorie-table__column">{fat.toFixed(2)}</p>
-        <p className="calorie-table__column">{fiber.toFixed(2)}</p>
-        <p className="calorie-table__column">{potassium.toFixed(2)}</p>
-        <p className="calorie-table__column">{protein.toFixed(2)}</p>
-        <p className="calorie-table__column">{sodium.toFixed(2)}</p>
-        <p className="calorie-table__column">{sugar.toFixed(2)}</p>
+        <p className="calorie-table__column t">Total</p>
+        <p className="calorie-table__column t">{calories}</p>
+        <p className="calorie-table__column t">{carbohydrates}</p>
+        <p className="calorie-table__column t">{cholesterol}</p>
+        <p className="calorie-table__column t">{fat}</p>
+        <p className="calorie-table__column t">{fiber}</p>
+        <p className="calorie-table__column t">{potassium}</p>
+        <p className="calorie-table__column t">{protein}</p>
+        <p className="calorie-table__column t">{sodium}</p>
+        <p className="calorie-table__column t">{sugar}</p>
+        <p className="calorie-table__column t"></p>
       </div>
     </>
   );

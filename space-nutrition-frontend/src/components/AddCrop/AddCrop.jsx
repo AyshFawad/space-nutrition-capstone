@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { baseURL } from "../../utilities/utilities.js"
 import { useNavigate } from 'react-router-dom';
-
+import "./AddCrop.scss"
 function AddCrop() {
   const [crop, setCrop] = useState(""); // The selected crop name
   const [growthStage, setGrowthStage] = useState(""); // The selected growth stage
@@ -131,7 +131,7 @@ function AddCrop() {
             value={growthStage}
             onChange={handleChangeGrowthStage}
             required
-            disabled={!crop} 
+            disabled={!crop}
           >
             <option value="">Select a growth stage</option>
             {getGrowthStages(crop).map((stage) => (
@@ -143,7 +143,7 @@ function AddCrop() {
         </label>
 
         <button className="form__button" type="submit" disabled={loading}>
-          {loading ? "Loading..." : "Submit"}
+          Add Crop
         </button>
       </form>
     </>

@@ -37,22 +37,20 @@ function Plants() {
       }
     
     return (
-        <section>
-            
-          {plants.map((plant)=>{
-           
-            return (
-                <section key={plant.id}>
-                <Link to= {`/plant/${plant.id}`}  >           
-                
-                <img src={baseURL+plant.photo}/>
-                <p>{plant.name}</p>
-                </Link>   
-                
-                </section>
-            );
-          })}
+      <section className="plants-container">
+      {plants.map((plant) => (
+        <section key={plant.id} className="plant-item">
+          <Link to={`/plant/${plant.id}`} >
+            <img 
+              src={baseURL + plant.photo} 
+              alt={plant.name}  // Added alt text for accessibility
+              className="plant-image"  // Added class for styling
+            />
+            <p>{plant.name}</p>
+          </Link>   
         </section>
+      ))}
+    </section>
 
     )
 }
