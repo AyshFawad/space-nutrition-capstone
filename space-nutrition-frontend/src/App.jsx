@@ -9,6 +9,7 @@ import PlantDetailsPage from "./components/PlantDetails/PlantDetails";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import AddCropPage from "./pages/AddCropPage/AddCropPage";
 import MyPlantsPage from "./pages/MyPlantsPage/MyPlantsPage";
+import SingleRecipe from "./components/SingleRecipe/SingleRecipe";
 
 function App() {
   
@@ -30,6 +31,7 @@ function App() {
         <Route path="plants/addcrop" element={<AddCropPage />} />
         <Route path="/calories" element={<CalorieCounterPage />} />
         <Route path="/recipes" element={<RecipePage />} />
+        <Route path="/recipes/:id" element={<SingleRecipe/>} />
         
       </Routes>
     

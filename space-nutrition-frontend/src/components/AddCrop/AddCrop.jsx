@@ -4,23 +4,24 @@ import { baseURL } from "../../utilities/utilities.js"
 import { useNavigate } from 'react-router-dom';
 import "./AddCrop.scss"
 function AddCrop() {
-  const [crop, setCrop] = useState(""); // The selected crop name
-  const [growthStage, setGrowthStage] = useState(""); // The selected growth stage
+  const [crop, setCrop] = useState(""); 
+  const [growthStage, setGrowthStage] = useState(""); 
   const [isFormValid, setIsFormValid] = useState(true);
-  const [crops, setCrops] = useState([]); // To store all fetched crops
-  const [loading, setLoading] = useState(false); // To track loading state
+  const [crops, setCrops] = useState([]); 
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
   const navigate = useNavigate();
   
 
-  // Fetch all crops when the component is mounted
   useEffect(() => {
     const fetchCrops = async () => {
       setLoading(true);
       try {
         const response = await axios.get(`${baseURL}/api/plants`);
-        setCrops(response.data); // Store the crops data
+        setCrops(response.data); 
       } catch (error) {
-        console.error("Error fetching crops:", error);
+        setErrorMessage("An error occurred while fetching crops.")
         alert("An error occurred while fetching crops.");
       } finally {
         setLoading(false);
@@ -28,29 +29,29 @@ function AddCrop() {
     };
 
     fetchCrops();
-  }, []); // Empty dependency array means it runs once when the component is mounted
-
-  // Handle changes in the crop selection
+  }, []); 
   function handleChangeCrop(event) {
     setCrop(event.target.value);
   }
 
-  // Handle changes in the growth stage selection
   function handleChangeGrowthStage(event) {
     setGrowthStage(event.target.value);
   }
 
-  // Handle form submission
+ 
   async function handleSubmit(event) {
     event.preventDefault();
 
     if (!crop || !growthStage) {
-      alert("You must fill out all fields");
+      setErrorMessage("You must fill out all fields");
+      setSuccessMessage("")
       setIsFormValid(false);
       return;
     }
     setIsFormValid(true);
     setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
 
     try {
       
@@ -72,20 +73,22 @@ function AddCrop() {
       
       const result = await axios.post(`${baseURL}/api/myPlants`, fullCropData);
 
-      alert("Crop added successfully!");
+      setSuccessMessage("Crop added successfully!");
 
       setCrop("");
       setGrowthStage("");
     } catch (error) {
       console.error("Error submitting crop data:", error);
-      alert("An error occurred while submitting the crop data.");
+      setErrorMessage("An error occurred while submitting the crop data.");
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
-    navigate('/plants/myplants');
+    setTimeout(() => {
+      navigate("/plants/myplants");
+    }, 2000);
   }
 
-  // Get available growth stages for each crop
+ 
   const getGrowthStages = (selectedCrop) => {
     switch (selectedCrop) {
       case "Tomato":
@@ -141,11 +144,14 @@ function AddCrop() {
             ))}
           </select>
         </label>
-
+            
         <button className="form__button" type="submit" disabled={loading}>
-          Add Crop
+        {loading ? "Adding Crop..." : "Add Crop"}
         </button>
       </form>
+      
+      {successMessage && <div className="message success">{successMessage}</div>}
+      {errorMessage && <div className="message error">{errorMessage}</div>}
     </>
   );
 }

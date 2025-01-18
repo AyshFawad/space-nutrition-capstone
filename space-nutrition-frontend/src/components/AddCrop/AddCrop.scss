@@ -78,4 +78,25 @@ h2 {
       font-size: 16px;
     }
   }
+  .message {
+    padding: 10px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 5px;
+  
+  }
+  
+  .success {
+    background: linear-gradient(135deg, #9c27b0, #6200ea);
+    margin: 5rem 25rem;
+    position: relative;
+    bottom: 9rem
+   
+  }
+  
+  .error {
+    background-color: #dc3545;
+    color: white;
+  }
+  
   

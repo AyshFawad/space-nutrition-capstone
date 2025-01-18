@@ -1,19 +1,25 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Link, useParams} from "react-router-dom";
 import axios from "axios";
 import { baseURL } from "../../utilities/utilities";
+import "./RecipePage.scss"
+import SingleRecipe from "../../components/SingleRecipe/SingleRecipe";
 
 function RecipePage() {
   const [mealType, setMealType] = useState(""); // Meal type selected by user
   const [recipes, setRecipes] = useState([]); // List of all recipes fetched from backend
   const [filteredRecipes, setFilteredRecipes] = useState([]); // Filtered recipes based on meal type
   const [error, setError] = useState(null); // Error state for handling issues
-  let filtered=[];
+  const { id } =useParams();
+  let filtered = [];
+
   // Fetch all recipes when the component mounts
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await axios.get(`${baseURL}/api/recipes`);
         setRecipes(response.data);
+        
         setError(null);
       } catch (err) {
         setError("Error fetching recipes. Please try again.");
@@ -35,54 +41,67 @@ function RecipePage() {
     console.log(filtered)
     // Set the filtered recipes
     setFilteredRecipes(filtered);
-  };
+  }
+  
 
   return (
-    <div>
-      <h2>Find Recipes by Meal Type</h2>
-      
-      {/* Meal Type Form */}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="mealType">Meal Type:</label>
-        <select
-          id="mealType"
-          value={mealType}
-          onChange={(e) => setMealType(e.target.value)}
-          required
-        >
-          <option value="">Select a meal type</option>
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="snack">Snack</option>
-          <option value="dessert">Dessert</option>
-        </select>
-        <button type="submit">Search Recipes</button>
-      </form>
+    <>
+    <h2 className="recipe__header">Find Recipes by Meal Type</h2>
+    <div className="recipe-finder">
 
-      {/* Error handling */}
-      {error && <p>{error}</p>}
+       
+    {/* Meal Type Form */}
+    <form onSubmit={handleSubmit} className="meal-form">
+      <label htmlFor="mealType" className="meal-label">Meal Type:</label>
+      <select
+        id="mealType"
+        value={mealType}
+        onChange={(e) => setMealType(e.target.value)}
+        required
+        className="meal-select"
+      >
+        <option value="">Select a meal type</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snack">Snack</option>
+        <option value="dessert">Dessert</option>
+      </select>
+      <button type="submit" className="search-button">Search Recipes</button>
+    </form>
+  
+    {error && <p className="error-message">{error}</p>}
+  
+    {filteredRecipes.length > 0 && (
+      <div className="recipe-list">
+        <h3 className="recipe-list-header">Recipes:</h3>
+        <ul className="recipe-items">
+          {filteredRecipes.map((recipe) => (
+            <li key={recipe.id} className="recipe-item">
+              <Link to={`/recipes/${recipe.id}`}><h4 className="recipe-name">{recipe.name}</h4></Link>
+              
+              {/* <p className="recipe__method">Method of preparation:</p>
+              <p className="recipe-instructions">{recipe.instructions}</p>
+              <p className="recipe-ingredients">{recipe.ingredients.map((ingredient)=>{
+                      <ul key={ingredient.ingredient_id} >
+                        <li>{ingredient.ingredient_name}</li>
+                        </ul>
+              })}</p>
+              <p className="recipe-dietary-restrictions">{recipe.dietary_restrictions}</p>
+               */}
 
-      {/* Show filtered recipes */}
-      {filteredRecipes.length > 0 && (
-        <div>
-          <h3>Recipes:</h3>
-          <ul>
-            {filteredRecipes.map((recipe) => (
-              <li key={recipe.id}>
-                <h4>{recipe.name}</h4>
-                <p>{recipe.instructions}</p>
-                <p>{recipe.dietary_restrictions}</p>
-                <p>{recipe.ingredients}</p>
-
-                {/* You can add more recipe details here if needed */}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+                </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+          {/* {filteredRecipes.length > 0 && (
+        // <SingleRecipe id={filteredRecipes[0].id} />
+      )} */}
+  </>
   );
+  
 }
 
 export default RecipePage;

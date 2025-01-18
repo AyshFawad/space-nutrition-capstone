@@ -15,7 +15,8 @@ function MyPlantsPage() {
             const response = await axios.get(
               `${baseURL}/api/myplants`
             );
-            setMyPlants(response.data);
+            const sortedCrops = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            setMyPlants(sortedCrops);
             setError(null);
           } catch (error) {
             if (error.response && error.response.status === 404) {
@@ -36,8 +37,7 @@ function MyPlantsPage() {
           
           setMyPlants((prevPlants) => prevPlants.filter((plant) => plant.id !== id));
     
-          alert(response.data.message); // Display the success message
-        } catch (error) {
+          } catch (error) {
           alert("Error deleting the plant.");
         }
       };
@@ -54,17 +54,17 @@ function MyPlantsPage() {
         <section>
         <WaterReminder />
              
-          <div className="my-plants-container">
+          <div className="plants">
             <h2 className="plants__title">My Plants</h2>
             {myPlants.map((plant) => (
-              <section key={plant.id} className="plant-item">
+              <section key={plant.id} className="plants__container">
                 <img src={baseURL + plant.photo} alt={plant.name} className="plants__img" />
                 <div>
-                  <p className="plants__details"><strong>{plant.name}</strong></p>
+                  <p className="plants__details">{plant.name}</p>
                   <p className="plants__details">Growth Stage: {plant.growth_stage}</p>
                   <p className="plants__details">Planting Date: {dateFormat(plant.created_at)}</p>
                 </div>
-                <button onClick={() => handleDelete(plant.id)}>Delete</button>
+                <button className= "plants__delete" onClick={() => handleDelete(plant.id)}>Delete</button>
               </section>
             ))}
           </div>
