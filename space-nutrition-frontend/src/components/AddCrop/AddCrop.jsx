@@ -110,15 +110,16 @@ function AddCrop() {
     <>
       <h2>Grow and Monitor Your Crop</h2>
       <form onSubmit={handleSubmit} className="form">
-        <label htmlFor="crop">Choose a crop:</label>
+        <label className="form__label" >Choose a crop:</label>
         <select
+          className="form__select"
           id="crop"
           name="crop"
           value={crop}
           onChange={handleChangeCrop}
           required
         >
-          <option value="">Select a crop</option>
+          <option >Select a crop</option>
           {crops.map((cropItem) => (
             <option key={cropItem.id} value={cropItem.name}>
               {cropItem.name}
@@ -126,9 +127,10 @@ function AddCrop() {
           ))}
         </select>
 
-        <label htmlFor="growthStage" className="form__label">
+        <label className="form__label">
           Growth Stage:
           <select
+            className="form__select"
             id="growthStage"
             name="growthStage"
             value={growthStage}
@@ -136,7 +138,7 @@ function AddCrop() {
             required
             disabled={!crop}
           >
-            <option value="">Select a growth stage</option>
+            <option>Select a growth stage</option>
             {getGrowthStages(crop).map((stage) => (
               <option key={stage} value={stage}>
                 {stage}
@@ -150,8 +152,8 @@ function AddCrop() {
         </button>
       </form>
       
-      {successMessage && <div className="message success">{successMessage}</div>}
-      {errorMessage && <div className="message error">{errorMessage}</div>}
+      {successMessage && <div className="message__success">{successMessage}</div>}
+      {errorMessage && <div className="message__error">{errorMessage}</div>}
     </>
   );
 }

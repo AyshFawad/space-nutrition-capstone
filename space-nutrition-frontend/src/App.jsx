@@ -10,6 +10,7 @@ import RecipePage from "./pages/RecipePage/RecipePage";
 import AddCropPage from "./pages/AddCropPage/AddCropPage";
 import MyPlantsPage from "./pages/MyPlantsPage/MyPlantsPage";
 import SingleRecipe from "./components/SingleRecipe/SingleRecipe";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   
@@ -34,7 +35,7 @@ function App() {
         <Route path="/recipes/:id" element={<SingleRecipe/>} />
         
       </Routes>
-    
+    <Footer />
     </BrowserRouter>
     
   </div>

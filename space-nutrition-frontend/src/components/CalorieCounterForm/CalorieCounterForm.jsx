@@ -2,7 +2,7 @@
 import { useState } from "react";
 import CalorieCounter from "../CalorieCounter/CalorieCounter";
 import axios from 'axios';
-import './CalorieCounterForm.scss';  // Import your styles here
+import './CalorieCounterForm.scss';  
 
 function CalorieCounterForm() {
     const [quantity, setQuantity] = useState("");

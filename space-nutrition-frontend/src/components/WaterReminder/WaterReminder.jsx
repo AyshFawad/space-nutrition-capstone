@@ -21,8 +21,7 @@ function WaterReminder() {
   useEffect(() => {
     
     checkWateringReminder();
-
-    
+   
     const intervalId = setInterval(() => {
       
       setIsReminderDismissed(false); 
@@ -35,8 +34,8 @@ function WaterReminder() {
     <div className="water-reminder">
       {isReminderSet && !isReminderDismissed && (
         <div className="reminder-box">
-          <p>Reminder: Time to water your plants! 🌱💧</p>
-          <button onClick={handleReminderDismiss}>OK</button>
+          <p className="reminder-box__text">Reminder: Time to water your plants! 🌱💧</p>
+          <button className="reminder-box__button" onClick={handleReminderDismiss}>OK</button>
         </div>
       )}
     </div>

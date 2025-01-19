@@ -37,12 +37,12 @@ function PlantDetails() {
       }
     
     return (
-      <section className="plant-details-container">
-      <img src={baseURL + plant.photo} alt={plant.name} />
-      <p>{plant.name}</p>
-      <p><span>Watering Frequency:</span> {plant.watering_frequency}</p>
-      <p><span>Temperature Range:</span> {plant.temperature_range}</p>
-      <p><span>Humidity Level:</span> {plant.humidity_level}</p>
+      <section className="plant">
+      <img className="plant__img" src={baseURL + plant.photo} alt={plant.name} />
+      <p className="plant__name">{plant.name}</p>
+      <p className="plant__detail">Watering Frequency: {plant.watering_frequency}</p>
+      <p className="plant__detail">Temperature Range: {plant.temperature_range}</p>
+      <p className="plant__detail">Humidity Level: {plant.humidity_level}</p>
     </section>
 
     )

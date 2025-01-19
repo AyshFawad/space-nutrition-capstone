@@ -1,3 +1,4 @@
+@use "../../styles/partials/variables.scss" as *;
 .header {
     display: flex;
     justify-content: space-between;
@@ -20,7 +21,7 @@
     margin-left: 10px; 
 
     &:hover {
-        color:#d500f9; /* Hover color */
+        color:#d500f9; 
       }
     }
     

@@ -1,19 +1,20 @@
+@use "../../styles/partials/variables.scss" as *;
 .nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-  }
-  
-  .nav__link {
+    
+  &__link {
     color: white;
     text-decoration: none;
     font-size: 1rem;
     margin: 0 15px;
     transition: color 0.3s ease;
+
+    &:hover {
+        color: #d500f9; 
+    }
   }
-  
-  .nav__link:hover {
-    color: #d500f9; /* Hover color */
-  }
+}
   

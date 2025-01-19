@@ -12,13 +12,13 @@ function HomePage() {
        section?.scrollIntoView({ behavior: "smooth" });
     }
     const handleCaloriesClick = () => {
-        navigate("/calories"); // Navigate to the /plants page
+        navigate("/calories"); 
       };
     const handlePlantsClick = () => {
-        navigate("/plants"); // Navigate to the /plants page
+        navigate("/plants");
       };
     const handleRecipesClick = () => {
-        navigate("/recipes"); // Navigate to the /plants page
+        navigate("/recipes");
       };
     
   return (
@@ -81,10 +81,7 @@ function HomePage() {
             </div>
           </div>
         </section>
-
-        <footer className="footer">
-          <p>&copy; 2025 Astrobites. All rights reserved.</p>
-        </footer>
+        
       </div>
     </>
   );

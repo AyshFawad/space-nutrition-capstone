@@ -1,18 +1,6 @@
 @use '../../styles/partials/mixins.scss' as *;
 @use '../../styles/partials/variables.scss' as *;
 
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-   color: white;
-}
-
 .homepage {
   display: flex;
   flex-direction: column;
@@ -44,7 +32,7 @@ body {
     line-height: 5rem;
     font-weight: 700;
     margin-bottom: 1.25rem;
-    color: white;
+    color: $primary-color;
     }
 
     &__subtitle {
@@ -56,7 +44,7 @@ body {
     width: 35%;
     align-self: center;
     padding: 0.9375rem 1.875rem;
-    background: linear-gradient(135deg, #9c27b0, #6200ea);  // Gradient blue color
+    background: $button-color;
     border: none;
     border-radius: 0.3125rem;
     font-size: 1.2rem;
@@ -68,7 +56,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
 
     &:hover {
-      background: linear-gradient(135deg, #9c27b0, #6200ea);  // Invert the gradient on hover
+      background: $button-color;
       transform: scale(1.05);  
     }
 
@@ -93,14 +81,11 @@ body {
 }
 
   .card {
-    //background:  linear-gradient(135deg, #1e1e1e, #333333);
-    //padding: 30px;
-    //border-radius: 10px;
     width: 300px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid $primary-color;
 
     &:hover {
       transform: translateY(-10px);
@@ -115,7 +100,7 @@ body {
 
     &__title {
       font-size: 1.75rem;
-      color: white;
+      color: $primary-color;
     }
 
     &__details {
@@ -136,12 +121,9 @@ body {
     background: linear-gradient(135deg, #9c27b0, #6200ea);  // Gradient blue color
     border: none;
     border-radius: 0.3125rem;
-    //font-size: 1rem;
-    //font-weight: 600;
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    //margin-top: 1.875rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
 
     &:hover {
@@ -157,16 +139,4 @@ body {
   
 
 
-// Footer
-.footer {
-  margin-top: 50px;
-  padding: 20px;
-  text-align: center;
- 
-  width: 100%;
-  
-  p {
-    font-size: 1rem;
-    color: gray;
-  }
-}
+

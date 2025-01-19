@@ -1,31 +1,22 @@
-/* General styling for the plants container */
+@use "../../styles/partials/variables.scss" as *;
 .plants-container {
-    //display: grid;
-    //grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
-    //background-color: #f4f4f4;
-  
-  
-  /* Individual plant card styling */
+
   &__item {
     background-color: transparent;
     border-radius: 10px;
-    //box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     cursor: pointer;
-    border:1px solid white ;
+    border:1px solid $primary-color ;
     margin:2rem;
     &:hover {
       transform: translateY(-10px);
-      background: linear-gradient(135deg, #9c27b0, #6200ea); /* Dark green on hover */
-      color: #fff;
-  }
-     // box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-  
+      background: $button-color; 
+      }
+    } 
   
     &__image {
     width: 100%;
@@ -34,54 +25,15 @@
     object-position: center;
     }
   
-  /* Plant name styling */
-     &__name {
+    &__name {
     font-size: 18px;
     font-weight: 600;
-    color: white;
+    color: $primary-color;
     padding: 15px;
     margin: 0;
-    //background-color: #fff;
-    text-transform: capitalize;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transition: background-color 0.3s ease;
    
   }
 }
-//  /
-//   .loading-message, .error-message {
-//     text-align: center;
-//     font-size: 20px;
-//     color: #666;
-//     padding: 50px;
-//   }
-  
-//   /* Responsive design for smaller screens */
-//   @media (max-width: 768px) {
-//     .plants-container {
-//       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-//       gap: 15px;
-//     }
-  
-//     .plant-image {
-//       height: 180px;
-//     }
-  
-//     .plant-item p {
-//       font-size: 16px;
-//       padding: 10px;
-//     }
-//   }
-  
-//   @media (max-width: 480px) {
-//     .plants-container {
-//       grid-template-columns: 1fr;
-//       gap: 10px;
-//     }
-  
-//     .plant-image {
-//       height: 150px;
-//     }
-//   }
-  
