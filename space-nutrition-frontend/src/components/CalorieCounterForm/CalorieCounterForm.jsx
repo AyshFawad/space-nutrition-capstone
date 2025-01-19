@@ -50,6 +50,9 @@ function CalorieCounterForm() {
         if(food === (quantity + ' ' + foodItem)){
             setFood(quantity + ' ' + foodItem);
         }
+
+        setFoodItem("");
+        setQuantity("");
     }
 
     function handleCancel(event) {
