@@ -78,7 +78,7 @@ function RecipePage() {
                     <h4 className="recipe__name">{recipe.name}</h4>
                   </Link>
                 </li>
-              ))}s
+              ))}
             </ul>
           </div>
         )}
